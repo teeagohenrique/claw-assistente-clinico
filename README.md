@@ -4,7 +4,7 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-412991?logo=openai&logoColor=white)
-![Testes](https://img.shields.io/badge/testes-23%20passando-brightgreen)
+[![CI](https://github.com/teeagohenrique/claw-assistente-clinico/actions/workflows/ci.yml/badge.svg)](https://github.com/teeagohenrique/claw-assistente-clinico/actions/workflows/ci.yml)
 ![Licença](https://img.shields.io/badge/licen%C3%A7a-propriet%C3%A1ria-lightgrey)
 
 Assistente clínico que conduz a jornada do paciente pelo WhatsApp: acolhimento,
