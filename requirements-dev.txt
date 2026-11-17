@@ -1,0 +1,7 @@
+-r requirements.txt
+
+# Ferramentas de desenvolvimento e testes
+pytest
+pytest-cov
+httpx
+ruff

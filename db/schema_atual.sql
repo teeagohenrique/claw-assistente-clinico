@@ -1,0 +1,71 @@
+-- ============================================================
+-- schema_atual.sql — REFERÊNCIA (não executar)
+-- Fotografia do schema informado pelo painel do Supabase em 16/11/2026.
+-- Mantido apenas para contexto e comparação com o runtime.
+-- ============================================================
+
+-- public.pacientes
+--   id uuid PK default uuid_generate_v4()
+--   telefone varchar NOT NULL UNIQUE
+--   nome varchar
+--   aceitou_termos boolean NOT NULL default false
+--   data_aceite_termos timestamptz
+--   versao_termo varchar default 'v1.0'
+--   estado_atual estado_conversa NOT NULL default 'menu_principal'
+--   ultima_interacao timestamptz default now()
+--   criado_em timestamptz default now()
+--   cpf varchar UNIQUE
+--   rg varchar
+--   data_nascimento date
+--   email varchar
+--   endereco_completo text
+--   cep varchar
+--   termo_aceito boolean default false
+--   data_aceite_termo timestamptz
+--   tipo_plano text default 'avulso'
+--   status_plano text default 'ativo'
+--   data_vencimento_plano timestamptz
+
+-- public.agendamentos
+--   id uuid PK default uuid_generate_v4()
+--   paciente_id uuid NOT NULL FK -> pacientes(id)
+--   data_hora_inicio timestamptz NOT NULL
+--     CHECK dia da semana (America/Recife) in (3, 4)  -- quarta/quinta
+--   data_hora_fim timestamptz NOT NULL
+--   status status_agendamento NOT NULL default 'pendente'
+--   google_event_id varchar
+--   aprovado_por varchar
+--   data_aprovacao timestamptz
+--   criado_em timestamptz default now()
+--   atualizado_em timestamptz default now()
+
+-- public.diario_psi
+--   id uuid PK default uuid_generate_v4()
+--   paciente_id uuid NOT NULL FK -> pacientes(id)
+--   agendamento_id uuid FK -> agendamentos(id)
+--   relato_texto text NOT NULL
+--   liberado_para_medico boolean NOT NULL default false
+--   data_limite_expiracao timestamptz NOT NULL
+--   criado_em timestamptz default now()
+
+-- public.literatura_chunks
+--   id uuid PK default uuid_generate_v4()
+--   titulo_obra varchar NOT NULL
+--   autor varchar default 'Dr. Responsável'
+--   pagina_ou_capitulo varchar
+--   conteudo text NOT NULL
+--   embedding vector (dimensão definida no banco)
+--   criado_em timestamptz default now()
+
+-- public.alertas_clinicos
+--   id uuid PK default uuid_generate_v4()
+--   paciente_id uuid NOT NULL FK -> pacientes(id)
+--   mensagem_gatilho text NOT NULL
+--   notificacao_enviada boolean default false
+--   criado_em timestamptz default now()
+
+-- public.conversas
+--   whatsapp_paciente varchar PK
+--   historico jsonb NOT NULL default '[]'
+--   atualizado_em timestamptz default now()
+--   modulo_ativo text default 'menu'

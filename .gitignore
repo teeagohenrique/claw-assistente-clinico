@@ -1,0 +1,25 @@
+# Credenciais e segredos (NUNCA subir)
+.env
+google_credentials.json
+
+# Ambiente virtual e cache do Python
+venv/
+__pycache__/
+*.py[cod]
+
+# Executáveis e arquivos locais
+ngrok.exe
+.DS_Store
+.venv/
+
+# Materiais de origem do acervo (autorais e potencialmente grandes).
+# Apenas o README da pasta é versionado.
+acervo/*
+!acervo/README.md
+
+# Documentos internos (comerciais, jurídicos e estudos pessoais).
+docs-internos/
+
+# Cache de testes
+.pytest_cache/
+.ruff_cache/
